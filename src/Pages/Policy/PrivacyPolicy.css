@@ -1,0 +1,51 @@
+/* Reset utili */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+/* Sfondo pagina */
+.page-wrapper{
+  background: #f5f6f8;             /* light grey */
+  /* usa dVH per i mobile browser moderni, fallback a 100vh */
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding-block: clamp(16px, 2vw, 32px);  /* spazio sopra/sotto */
+}
+
+/* Contenitore principale (Bootstrap ha già max-width responsive) */
+.container-policy{
+  /* opzionale: restringi un po' la max-width se vuoi più leggibilità */
+  max-width: 1000px;
+}
+
+/* Card bianca che contiene tutto il testo */
+.policy-card{
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  padding: clamp(16px, 2.5vw, 32px);
+}
+
+/* IMPORTANTISSIMO per evitare overflow orizzontale delle colonne */
+.policy-grid > .col { min-width: 0; }
+
+/* Gestione testi lunghi, URL e liste con link */
+.policy-content{
+  overflow-wrap: anywhere;   /* spezza parole lunghissime */
+  word-break: break-word;    /* fallback */
+}
+
+.policy-links li{
+  overflow-wrap: anywhere;
+  margin-bottom: .25rem;
+}
+
+/* Spaziatura tipografica rapida */
+.policy-card p { line-height: 1.6; }
+
+/* Se hai header/footer fixed, lascia spazio extra nel wrapper
+.page-wrapper{ padding-top: calc(16px + var(--header-h,0px));
+               padding-bottom: calc(16px + var(--footer-h,0px)); }
+*/

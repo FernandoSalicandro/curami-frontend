@@ -1,0 +1,232 @@
+.first-section img {
+    max-width: 100%;
+}
+
+.hero-cta {
+    width: 100%;
+    min-height: 320px;
+    height: auto;
+    border: var(--hero-cta-border);
+    /* più tenue */
+    border-radius: 20px;
+    backdrop-filter: blur(100px);
+    padding: 20px;
+    background-color: var(--hero-cta-background);
+    /* sfondo lavanda chiaro trasparente */
+    color: var(--hero-cta-color);
+    /* lilla profondo per testo */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+    box-shadow: var(--hero-cta-box-shadow-hover);
+    background-color: var(--hero-cta-background-hover);
+}
+
+.hero-cta span {
+    color: var(--cta-span-color);
+    /* un lilla/purple meno saturo */
+    font-weight: bold;
+}
+
+.hero-cta p {
+    font-size: 1.1rem;
+}
+
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+    align-items: center;
+}
+
+.cta-actions .btn {
+    white-space: nowrap;
+    /* evita il testo su due righe */
+    flex: 0 1 auto;
+}
+
+/* stile per il secondo bottone (coerente con palette) */
+.alt-button {
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.alt-button:hover {
+    background: rgba(123, 220, 181, 0.15);
+    box-shadow: 0 0 10px rgba(123, 220, 181, 0.25);
+    color: var(--color-text);
+}
+
+.questionnaire-button {
+    border: 1px solid var(--cta-span-color);
+    color: var(--cta-span-color);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.questionnaire-button:hover {
+    background: var(--background-button-hover);
+    /* lavanda soft */
+    box-shadow: var(--box-shadow-button-hover);
+    color: var(--color-button-hover);
+}
+
+.container {
+    position: absolute;
+    z-index: 5;
+}
+
+/* ===== SCROLLING TEXT - NASTRO INFINITO ===== */
+.scrolling-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    white-space: nowrap;
+    z-index: 4;
+    width: 100%;
+}
+
+.scrolling-text {
+    display: inline-block;
+    font-size: 3rem;
+    color: var(--scrolling-text-color);
+
+}
+
+
+/* ===== TESTIMONIALS SECTION ===== */
+
+.testimonials-section {
+    height: auto;
+    width: 100%;
+    background-color: var(--testimonials-section-background);
+    border-top: 1px solid var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+    padding: 48px 0px;
+
+}
+
+.testimonials-section h2 {
+    color: var(--color-primary);
+}
+
+.testimonial-wrapper {
+    width: 100%;
+    background: var(--color-bg);
+    padding: 40px 20px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.always-button {
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 250px;
+    border: 1px solid var(--cta-span-color);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding : 8px 16px;
+    background-color: var(--background-button-hover);
+}
+
+.always-button:hover {
+    background-color: var(--color-button-hover);
+    color: var(--color-primary);
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media screen and (min-width: 300px) {
+    .container {
+        top: 10%;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+
+    }
+
+    .scrolling-text {
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 700px) {
+    .container {
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .scrolling-container {
+        top: 5%;
+    }
+
+    .scrolling-text {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .container {
+        top: 30%;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .scrolling-text {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .scrolling-text {
+        font-size: 30px;
+        white-space: normal;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-actions .btn {
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (max-width: 698px) {
+
+
+
+    .scrolling-text {
+        font-size: 2rem;
+    }
+}

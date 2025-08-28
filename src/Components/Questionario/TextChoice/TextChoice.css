@@ -1,0 +1,126 @@
+/* FreeText.css */
+.freetext-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 12px;
+  height: 100%;
+}
+
+.freetext-wrapper h2 {
+    font-size: 1.2rem;
+    text-align : center;
+    color : var(--color-accent);
+  margin: 0 0 6px 0;
+}
+
+/* textarea con stile coerente ai button di Multichoice */
+.freetext-wrapper textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  background: var(--color-bg);
+  color: var(--cta-span-color);
+  outline: none;
+  resize: vertical;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.freetext-wrapper textarea::placeholder {
+  color: #a8a8a8;
+}
+
+.freetext-wrapper textarea:hover,
+.freetext-wrapper textarea:focus {
+  border: 1px solid #fff !important;
+  box-shadow: 0 0 10px rgba(223, 169, 245, 0.8);
+  background-color: var(--color-primary);
+  color: #fff !important;
+}
+
+/* azioni sotto al textarea */
+.freetext-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* bottoni coerenti con Multichoice */
+.freetext-actions button {
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 8px 16px;
+  background: var(--color-bg);
+  color: var(--cta-span-color);
+  width: 50%;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.06s ease;
+}
+
+.freetext-actions button:hover {
+  border: 1px solid #fff !important;
+  box-shadow: 0 0 10px rgba(223, 169, 245, 0.8);
+  color: #fff !important;
+  background-color: var(--color-primary) !important;
+}
+
+.freetext-actions button:active {
+  transform: translateY(1px);
+}
+
+
+
+
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .freetext-wrapper textarea {
+    min-height: 120px;
+  }
+  .freetext-actions {
+    gap: 6px;
+  }
+}
+
+/* Aggiungi queste classi mantenendo lo stile esistente */
+
+/* Per il contatore caratteri */
+.textarea-container {
+  position: relative;
+  width: 100%;
+}
+
+.character-count {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-size: 0.8rem;
+  color: var(--cta-span-color);
+}
+
+/* Per gli errori */
+.freetext-wrapper textarea.error {
+  border-color: #ff4444 !important;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 4px 8px;
+}
+
+/* Per il bottone disabilitato */
+.freetext-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--color-bg) !important;
+  color: var(--cta-span-color) !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,186 @@
+:root {
+  --wrapper-center-box-height: 200px; 
+  --header-box-height: 100px;
+  --circle-width: 50px;
+}
+
+/* ===============================
+   CONTENITORE SLIDER
+================================= */
+.feature-slider {
+  height: auto;
+  width: 100%;
+  background-color: var(--slider-bg); /* usa il primario */
+  color: var(--slider-text);          /* testo bianco */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  z-index: 1;
+}
+
+.wrapper-center {
+  width: 100%;
+  background-color: var(--slider-bg);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.box-0 {
+  height: var(--header-box-height);
+  min-width: 100%;
+  background-color: rgba(255,255,255,0.06); /* fascia tenue */
+}
+
+/* ===============================
+   RIGA STEP
+================================= */
+.box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  gap: 20px;
+  padding: 20px;
+  color: var(--slider-text);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.step-circle {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===============================
+   CERCHI (STATO BASE = INATTIVO)
+   Lo stato attivo è gestito da framer-motion
+   con le variabili CSS (border/bg/testo).
+================================= */
+.circle-1, .circle-2, .circle-3, .circle-4 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--circle-width);
+  width: var(--circle-width);
+  border-radius: 50%;
+  border: 2px solid var(--slider-circle-inactive-border);
+  color: var(--slider-circle-inactive-text);
+  background: transparent;
+}
+
+.step p {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Titoli step */
+.step h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0;
+  color: var(--slider-step-title-inactive);
+}
+
+/* ===============================
+   IMMAGINI (se usate nello slider)
+================================= */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Box placeholder opzionali */
+.box1 {
+  height: 50%;
+  width: 100%;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.steps-guide {
+  height: 100%;
+  min-width: calc(100% - var(--circle-width) - 25px);
+  background-color: transparent;
+}
+
+.steps-guide h2 {
+  margin-top: 25px;
+}
+
+/* Box nero di prova rimosso/ammorbidito */
+.box-prova {
+  height: 50%;
+  min-width: 300px;
+  background-color: rgba(255,255,255,0.06);
+}
+
+/* fascia inferiore chiara per respiro visivo */
+.box-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  
+  background-color: rgba(255,255,255,0.05);
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media screen and (max-width: 768px) {
+  .wrapper-center {
+    flex-direction: column;
+   
+  }
+
+  .box {
+    flex-direction: column;
+    padding: 12px;
+ 
+   
+  }
+
+  .box1, .box-prova {
+    min-height: 150px;
+    width: 100%;
+  }
+
+  .step {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .step h2 {
+    font-size: 1.05rem;
+  }
+
+
+
+
+}

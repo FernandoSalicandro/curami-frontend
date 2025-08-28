@@ -1,0 +1,115 @@
+/* Header.css */
+.header {
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 7;
+    background: var(--header-background);
+
+    color: white;
+}
+
+h3 {
+    margin: 0
+}
+
+.left {
+
+    width: 15%;
+}
+
+.hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 9;
+
+}
+
+.hamburger span {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+
+
+
+.sidebar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: white;
+    z-index: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: start;
+}
+
+.sidebar li {
+    font-size: 1.2rem;
+    color: black;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    color: var(--color-primary);
+}
+
+.right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    padding: 0 20px;
+}
+
+.header-questionnaire-button {
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-right: 20px; 
+    border: 1px solid var(--cta-span-color);
+    color: var(--cta-span-color);
+    letter-spacing: 1px;
+    background-color: white;
+}
+
+
+.header-questionnaire-button:hover {
+    background: var(--background-button-hover);
+    /* lavanda soft */
+    box-shadow: var(--box-shadow-button-hover);
+    color: var(--color-button-hover);
+}

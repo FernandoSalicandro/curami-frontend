@@ -1,0 +1,38 @@
+.footer {
+height: 100px;
+padding: 1rem;
+background-color: #222;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+
+
+.footer a {
+color: white;
+text-decoration: none;
+font-weight: 500;
+transition: color 0.3s ease;
+font-size: 0.95rem;
+}
+
+
+.footer a:hover {
+color: var(--color-secondary, #7BDCB5);
+}
+
+
+@media (max-width: 600px) {
+.footer {
+flex-direction: column;
+height: auto;
+padding: 2rem 0;
+}
+
+
+.footer a {
+margin: 0.4rem 0;
+}
+}

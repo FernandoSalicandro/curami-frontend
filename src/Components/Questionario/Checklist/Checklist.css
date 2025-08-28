@@ -1,0 +1,81 @@
+.checklist-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 12px;
+  height: 100%;
+}
+
+.checklist-wrapper h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    color : var(--color-accent);
+}
+
+.checklist-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* coerente con Multichoice */
+  gap: 5px;
+}
+
+.checklist-options button,
+.checklist-actions button {
+  margin-top: 10px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 8px 16px;
+  background: var(--color-bg);
+  color: var(--cta-span-color);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.06s ease;
+}
+
+.checklist-options button:hover,
+.checklist-actions button:hover {
+  border: 1px solid white !important;
+  box-shadow: 0 0 10px rgba(223, 169, 245, 0.8);
+  color: white !important;
+  background-color: var(--color-primary) !important;
+}
+
+.checklist-options .selected {
+  border: 1px solid white !important;
+  box-shadow: 0 0 10px rgba(223, 169, 245, 0.8);
+  color: white !important;
+  background-color: var(--color-primary) !important;
+}
+
+.checklist-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.continua-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Aggiungi al Checklist.css */
+.error-message {
+  color: #ff4444;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 4px 8px;
+  margin-bottom: 10px;
+}
+
+.checklist-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--color-bg) !important;
+  color: var(--cta-span-color) !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: none !important;
+}
+
+/* Aggiungere la classe text-center se non esiste già */
+.text-center {
+  text-align: center;
+}

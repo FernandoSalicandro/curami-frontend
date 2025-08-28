@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  /* =======================================================
+     DIMENSIONI HEADER
+  ======================================================= */
+  --header-height: 60px;
+
+  /* =======================================================
+     PALETTE PRINCIPALE
+  ======================================================= */
+  --color-primary: #B084CC;
+  /* Viola lavanda chiaro */
+  --color-secondary: #7BDCB5;
+  /* Verde acqua tenue */
+  --color-text: #333;
+  /* Grigio antracite */
+  --color-bg: #FAFAFA;
+  /* Bianco caldo */
+  --color-neutral: #F0F0F0;
+  /* Grigio chiaro */
+  --color-accent: #FF9AA2;
+  /* Rosa corallo per CTA */
+
+  /* =======================================================
+     HEADER
+  ======================================================= */
+  --header-background: linear-gradient(45deg,
+      var(--color-primary),
+      rgb(238, 178, 255),
+      rgb(245, 200, 255));
+
+  /* =======================================================
+     HERO / CTA
+  ======================================================= */
+  --cta-span-color: var(--color-primary);
+  --hero-cta-color: var(--color-primary);
+  --hero-cta-background: rgba(255, 240, 255, 0.5);
+  /* bordo leggermente desaturato del primario */
+  --hero-cta-border: 1px solid rgba(176, 132, 204, 0.35);
+
+  /* Hover CTA (primario) */
+  --background-button-hover: #DFA9F5;
+  --box-shadow-button-hover: 0 0 10px rgba(223, 169, 245, 0.8);
+  --color-button-hover: #FFFFFF;
+
+  --cta-button-border: 1px solid var(--color-primary);
+  --cta-button-color: var(--color-primary);
+
+  /* =======================================================
+     FIRST SECTION (bg morbido coerente con primario)
+  ======================================================= */
+  --first-section-background: linear-gradient(45deg,
+      #E9DEF4,
+      #F2E7FB,
+      #FBF4FF);
+
+  /* =======================================================
+     TESTO "SCROLLING" DI SFONDO
+  ======================================================= */
+  /* tenue e leggibile su gradient chiaro */
+  --scrolling-text-color: rgba(35, 32, 32, 0.158);
+  --scrolling-text-font-size: 150px;
+
+  /* =======================================================
+     TEMA FEATURE SLIDER
+  ======================================================= */
+  --slider-bg: var(--color-primary);
+  --slider-text: #FFFFFF;
+
+  /* Cerchi step */
+  --slider-circle-inactive-border: #FFFFFF;
+  --slider-circle-inactive-text: #FFFFFF;
+  --slider-circle-active-bg: #FFFFFF;
+  --slider-circle-active-border: var(--color-primary);
+  --slider-circle-active-text: var(--color-primary);
+
+  /* Titoli step */
+  --slider-step-title-inactive: #FFFFFF;
+  --slider-step-title-active: var(--color-secondary);
+
+
+  /* =======================================================
+     PALETTE TESTIMONIALS SECTION
+  ======================================================= */
+
+  --testimonials-section-background: #FAFAFA;
+  --testimonials-card-background: #FFFFFF;
+
+}
+
+
+/*UTILITIES*/
+
+.grid-center {
+  display: grid;
+  place-content: center;
+}
+
+.first-section {
+  position: relative;
+  overflow-x: hidden;
+  margin-top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  width: 100%;
+  background: var(--first-section-background);
+}
+
+@media screen and (max-width: 1440px) {
+  .first-section {
+    display: grid;
+    place-content: center;
+  }
+
+}
+
+section {
+  height: calc(auto - var(--header-height));
+
+}
+
+.questionnaire-button {
+  border: var(--cta-button-border);
+  color: var(--cta-button-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.questionnaire-button:hover {
+  background: var(--background-button-hover);
+  /* lavanda soft */
+  box-shadow: var(--box-shadow-button-hover);
+  color: var(--color-button-hover);
+}
