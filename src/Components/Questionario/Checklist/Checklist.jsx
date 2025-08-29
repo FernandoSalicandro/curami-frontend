@@ -79,7 +79,9 @@ const Checklist = ({ name, question, options, defaultValue = [], onSubmit, onBac
       </div>
 
       <p className="text-center">
-        Le tue risposte e i tuoi dati NON verranno mai salvati e/o condivisi con terze parti
+        I tuoi dati servono esclusivamente per la circerca dei professionisti migliori. Consulta la <strong> <a className='text-grey' href="/privacypolicy">Privacy Policy </a> </strong>
+        
+        per maggiori informazioni.
       </p>
     </motion.div>
   );

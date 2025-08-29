@@ -21,8 +21,9 @@ const ThanksPage = () => {
         <div className="thanks-wrapper">
             <h1>Grazie per la tua fiducia</h1>
             <div className="text-wrapper">
-                <h2>Ti abbiamo inviato una mail di conferma</h2>
-            <p>Ti ricontatteremo per la prima visita il prima possibile e in accordo con i tuoi giorni e orari preferiti</p>
+                <h2>A breve riceverai una e-mail di conferma</h2>
+            <p className='my-0'>Ti ricontatteremo per la prima visita il prima possibile e in accordo con i tuoi giorni e orari preferiti</p>
+            <p>Se non vedi la mail controlla nello spam!</p>
             </div>
 
             <a href="/">Torna alla Home</a>

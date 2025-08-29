@@ -158,7 +158,11 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
         </div>
       </form>
 
-      <p>Le tue risposte e i tuoi dati NON verranno mai salvati e/o condivisi con terze parti</p>
+        <p className="text-center">
+        I tuoi dati servono esclusivamente per la circerca dei professionisti migliori. Consulta la <strong> <a className='text-grey' href="/privacypolicy">Privacy Policy </a> </strong>
+        
+        per maggiori informazioni.
+      </p>
     </motion.div>
   );
 };
