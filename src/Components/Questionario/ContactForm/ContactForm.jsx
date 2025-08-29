@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import {trackEvent} from '../../CookieBanner/CookieBanner';
 import './ContactForm.css';
 
 const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti ?', onSubmit, onBack }) => {
@@ -54,10 +55,34 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
         
       }
 
+      //track completamento questionario
+      trackEvent('CompleteQuestionnaire', {
+        name : form.nome.trim(),
+        email : form.email.trim(),
+        has_phone : !!form.telefono.trim(),
+        timestamp : new Date().toISOString()
+      });
+
+      //track del lead
+      trackEvent('Lead', {
+        content_name: 'Questionario Paziente',
+        status : 'submitted',
+        lead_type : 'Paziente',
+        timestamp : new Date().toISOString()
+      })
+
       
       navigate('/grazie');
     } catch (error) {
       console.error('❌ Submit error:', error);
+
+      //tracciamento errore
+      trackEvent('SubmissionError', {
+        error_type : error.message,
+        form_type : 'contact',
+        timestamp : new Date().toISOString()
+      })
+
       alert('Errore durante l\'invio. Riprova.');
     } finally {
       setSubmitting(false);
