@@ -48,29 +48,23 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
         });
       }
 
-      // Track form submission (generico)
-      trackEvent('FormSubmit', {
-        form_type: 'contact',
-        has_contact: !!form.telefono.trim(),
-        timestamp: new Date().toISOString()
-      });
+      // Eventi standard di Meta
+      window.fbq('track', 'Contact');  // Traccia il contatto
+      window.fbq('track', 'Lead');     // Traccia la conversione
 
-      // Track conversione (generico)
-      trackEvent('Lead', {
-        content_type: 'form',
-        status: 'completed',
-        timestamp: new Date().toISOString()
+      // Evento custom per dettagli form
+      window.fbq('trackCustom', 'FormComplete', {
+        form_type: 'contact',
+        has_phone: !!form.telefono.trim()
       });
 
       navigate('/grazie');
     } catch (error) {
       console.error('❌ Submit error:', error);
 
-      // Track errore (generico)
-      trackEvent('Error', {
-        context: 'form_submission',
-        type: 'submission_failed',
-        timestamp: new Date().toISOString()
+      // Traccia errore come evento custom
+      window.fbq('trackCustom', 'FormError', {
+        error_type: 'submission_failed'
       });
 
       alert('Errore durante l\'invio. Riprova.');
