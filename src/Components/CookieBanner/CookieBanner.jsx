@@ -2,6 +2,16 @@ import { useEffect, useState } from 'react';
 import './CookieBanner.css';
 
 const COOKIE_KEY = 'cookieConsentGiven';
+const PIXEL_ID = '746295361557837'; // pixel id di facebook
+
+//funzione di tracking come utility esportabile
+export const trackEvent = (eventName, params = {}) => {
+  const hasConsented = localStorage.getItem(COOKIE_KEY) === 'true';
+  if (hasConsented && window.fbq) {
+    console.log('📊 Tracking event:', eventName, params); // per debug
+    fbq('track', eventName, params);
+  }
+}
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -19,11 +29,16 @@ export default function CookieBanner() {
     localStorage.setItem(COOKIE_KEY, 'true');
     loadMetaPixel();
     setVisible(false);
+    trackEvent('CookieConsent', {
+      action : 'accept',
+      timestamp : new Date().toISOString()
+    });
   };
 
   const rejectCookies = () => {
     localStorage.setItem(COOKIE_KEY, 'false');
     setVisible(false);
+    console.log('🍪 Cookie rejected');
   };
 
   const loadMetaPixel = () => {
@@ -46,7 +61,7 @@ export default function CookieBanner() {
       s.parentNode.insertBefore(t, s);
     })(window, document, 'script');
 
-    fbq('init', 'YOUR_PIXEL_ID'); // ⬅️ Sostituisci con il tuo ID Pixel
+    fbq('init', PIXEL_ID);
     fbq('track', 'PageView');
   };
 
@@ -55,8 +70,9 @@ export default function CookieBanner() {
   return (
     <div className="cookie-banner">
       <p>
-        Utilizziamo cookie tecnici e di terze parti (Pixel Meta) per offrirti una migliore esperienza. Cliccando “Accetta” ci autorizzi al loro utilizzo. <br />
-        <a href="/privacypolicy">Privacy Policy </a>
+        Utilizziamo cookie tecnici e di terze parti (Meta Pixel) per analizzare l'utilizzo del sito e migliorare i nostri servizi. 
+        Cliccando "Accetta" ci autorizzi al loro utilizzo. <br />
+        <a href="/privacypolicy">Privacy Policy</a>
       </p>
       <div className="cookie-actions">
         <button className="btn accept" onClick={acceptCookies}>Accetta</button>
