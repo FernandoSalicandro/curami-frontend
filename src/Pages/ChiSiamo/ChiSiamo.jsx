@@ -13,7 +13,7 @@ const ChiSiamo = () => {
             </figure>
 
             <div className="bio-box">
-              <h2>Mi chiamo Fernando Alberto Salicandro, fondatore di <span className='accent'>Curami.it</span></h2>
+              <h2>Mi chiamo Fernando Alberto Salicandro, fondatore di <span className='accent'>FisioNurse.com</span></h2>
               <p>
                 Da 4 anni sognavo di creare un servizio davvero utile ai pazienti.
                 Ho lavorato sia in strutture private che pubbliche, per l'Assistenza Domiciliare Integrata (ADI) e in studio. </p>
@@ -30,7 +30,7 @@ const ChiSiamo = () => {
                   con inevitabili esiti negativi sulla loro salute.</p>
               <hr />
               <p>
-                <span className='primary'>Curami.it</span> mira proprio a <span className="accent">tagliare i tempi</span> e fornire un servizio altamente qualificato e personalizzato a <span className='accent'>costi sostenibili</span> per famiglie e pazienti.
+                <span className='primary'>FisioNurse.com</span> mira proprio a <span className="accent">tagliare i tempi</span> e fornire un servizio altamente qualificato e personalizzato a <span className='accent'>costi sostenibili</span> per famiglie e pazienti.
               </p>
             </div>
 

@@ -139,7 +139,7 @@ const Header = () => {
 
 
       <div className="right">
-        <motion.h3 className='px-2' initial={{ x: -500, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1 }}>Curami.it</motion.h3>
+        <motion.h3 className='px-2' initial={{ x: -500, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1 }}>FisioNurse.com</motion.h3>
       </div>
       {isHomepage && (
         <motion.a
