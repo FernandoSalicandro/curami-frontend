@@ -27,22 +27,16 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
   };
 
   const handleSubmit = async () => {
-    
-
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length) {
-     
       return;
     }
 
     try {
-     
       setSubmitting(true);
 
       if (typeof onSubmit === 'function') {
-        
-
         await onSubmit({
           name,
           answer: {
@@ -52,36 +46,32 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
             email: form.email.trim(),
           },
         });
-        
       }
 
-      //track completamento questionario
-      trackEvent('CompleteQuestionnaire', {
-        name : form.nome.trim(),
-        email : form.email.trim(),
-        has_phone : !!form.telefono.trim(),
-        timestamp : new Date().toISOString()
+      // Track form submission (generico)
+      trackEvent('FormSubmit', {
+        form_type: 'contact',
+        has_contact: !!form.telefono.trim(),
+        timestamp: new Date().toISOString()
       });
 
-      //track del lead
+      // Track conversione (generico)
       trackEvent('Lead', {
-        content_name: 'Questionario Paziente',
-        status : 'submitted',
-        lead_type : 'Paziente',
-        timestamp : new Date().toISOString()
-      })
+        content_type: 'form',
+        status: 'completed',
+        timestamp: new Date().toISOString()
+      });
 
-      
       navigate('/grazie');
     } catch (error) {
       console.error('❌ Submit error:', error);
 
-      //tracciamento errore
-      trackEvent('SubmissionError', {
-        error_type : error.message,
-        form_type : 'contact',
-        timestamp : new Date().toISOString()
-      })
+      // Track errore (generico)
+      trackEvent('Error', {
+        context: 'form_submission',
+        type: 'submission_failed',
+        timestamp: new Date().toISOString()
+      });
 
       alert('Errore durante l\'invio. Riprova.');
     } finally {
@@ -102,7 +92,6 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
         className="contact-grid"
         onSubmit={async (e) => {
           e.preventDefault();
-          
           await handleSubmit();
         }}
       >
@@ -183,9 +172,8 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
         </div>
       </form>
 
-        <p className="text-center">
+      <p className="text-center">
         I tuoi dati servono esclusivamente per la circerca dei professionisti migliori. Consulta la <strong> <a className='text-grey' href="/privacypolicy">Privacy Policy </a> </strong>
-        
         per maggiori informazioni.
       </p>
     </motion.div>
