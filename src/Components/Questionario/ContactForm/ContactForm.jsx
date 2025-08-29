@@ -26,25 +26,21 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
   };
 
   const handleSubmit = async () => {
-    console.log('🔵 Handle submit started');
+    
 
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length) {
-      console.log('❌ Validation errors:', e);
+     
       return;
     }
 
     try {
-      console.log('🔵 Setting submitting state');
+     
       setSubmitting(true);
 
       if (typeof onSubmit === 'function') {
-        console.log('🔵 Calling onSubmit function with data:', {
-          nome: form.nome,
-          email: form.email,
-          telefono: form.telefono
-        });
+        
 
         await onSubmit({
           name,
@@ -55,10 +51,10 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
             email: form.email.trim(),
           },
         });
-        console.log('✅ onSubmit completed successfully');
+        
       }
 
-      console.log('🔵 Navigating to thanks page');
+      
       navigate('/grazie');
     } catch (error) {
       console.error('❌ Submit error:', error);
@@ -81,7 +77,7 @@ const ContactForm = ({ name = 'contatti', question = 'come possiamo contattarti 
         className="contact-grid"
         onSubmit={async (e) => {
           e.preventDefault();
-          console.log('🔵 Form submitted');
+          
           await handleSubmit();
         }}
       >

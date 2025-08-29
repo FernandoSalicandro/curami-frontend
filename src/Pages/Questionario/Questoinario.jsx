@@ -98,12 +98,7 @@ export default function Questionario() {
       const giorniArr = Array.isArray(updated.giorni) ? updated.giorni : updated.giorni.split(',').map(s => s.trim());
       const orariArr = Array.isArray(updated.orari) ? updated.orari : updated.orari.split(',').map(s => s.trim());
 
-      console.log('🔍 Matching request:', {
-        servizio: updated.servizio,
-        giorni: giorniArr,
-        orari: orariArr,
-        preferenza_genere: updated.preferenza_genere
-      });
+     
 
       const preferenzaGenereSingolare = 
       updated.preferenza_genere === 'Uomini' ? 'Uomo' :
@@ -129,7 +124,7 @@ export default function Questionario() {
   servizio_infermiere : updated.servizio_infermiere
 });
 
-      console.log('Professionisti compatibili:', matching.data);
+     
 
       setStep(nextStep(step, updated));
     } catch (error) {
@@ -208,7 +203,7 @@ export default function Questionario() {
     return null;
   }, [step, answers]);
 
-  console.log(answers)
+  
 
   // Tutti gli step visualizzabili (escluso "thanks" che non vogliamo contare)
   const visibleSteps = Object.keys(STEP_CONFIG).filter(
